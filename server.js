@@ -16,8 +16,6 @@ connectDB()
 
 const app = express()
 
-const { createServer } = require('http')
-const httpServer = createServer(app);
 const { Server } = require('socket.io');
 
 const io = new Server(8800, {
