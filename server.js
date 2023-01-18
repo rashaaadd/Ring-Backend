@@ -20,7 +20,7 @@ const { createServer } = require('http')
 const httpServer = createServer(app);
 const { Server } = require('socket.io');
 
-const io = new Server(httpServer, {
+const io = new Server(8800, {
     cors: {
         origin: ["http://localhost:3000","https://master.d3mn9a96s3gfxu.amplifyapp.com", "https://www.master.d3mn9a96s3gfxu.amplifyapp.com"]
     },
