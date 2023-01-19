@@ -16,6 +16,10 @@ connectDB()
 
 const app = express()
 
+app.use(cors())
+app.use(express.json({ limit: '50mb' }))
+app.use(express.urlencoded({ limit: '50mb', extended: false }))
+
 const { Server } = require('socket.io');
 
 const io = new Server(8800, {
@@ -58,9 +62,7 @@ io.on("connection", (socket) => {
     });
 });
 
-app.use(cors())
-app.use(express.json({ limit: '50mb' }))
-app.use(express.urlencoded({ limit: '50mb', extended: false }))
+
 
 app.use('/', userRoute)
 app.use('/post', postRoute)
